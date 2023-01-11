@@ -7,11 +7,19 @@ class Card {
   }
 
   flipCard() {
-    this.flipped = !this.flipped;
+    this.flipped = true;
+  }
+
+  unFlipCard() {
+    this.flipped = false;
   }
 }
 
 const CARDS = [];
+
+function cardsLength() {
+  return CARDS.length;
+}
 
 function getRandomizedCards() {
   if (CARDS.length === 0) return [];
@@ -28,8 +36,28 @@ function addCard(card) {
   CARDS.push(new Card({ ...card }));
 }
 
-function flipCard(id) {
-  CARDS.filter((card) => card.id === id)[0]?.flipCard();
+function getCardById(id) {
+  return { ...CARDS.filter((card) => card.id === Number(id))[0] };
 }
 
-export { flipCard, addCard, getRandomizedCards };
+function flipCard(id) {
+  CARDS.filter((card) => card.id === Number(id))[0]?.flipCard();
+}
+
+function unFlipCard(id) {
+  CARDS.filter((card) => card.id === Number(id))[0]?.unFlipCard();
+}
+
+function flippedCount() {
+  return CARDS.reduce((prev, curr) => (curr.flipped ? prev + 1 : prev), 0);
+}
+
+export {
+  flipCard,
+  unFlipCard,
+  flippedCount,
+  addCard,
+  getCardById,
+  getRandomizedCards,
+  cardsLength,
+};

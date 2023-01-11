@@ -1,7 +1,7 @@
 import { buildCards } from "./content/buildMainContent.js";
-import { defineCardClick } from "./game/onCardFlip.js";
+import { defineCardClickEvent } from "./events/onCardClick.js";
 
 buildCards();
-defineCardClick();
+defineCardClickEvent();
 
 export {};
