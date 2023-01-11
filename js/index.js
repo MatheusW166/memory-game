@@ -14,7 +14,7 @@ function buildCardElement(card) {
 }
 
 function buildCards() {
-  const randomizedCards = defineCards(askPlayerCards());
+  const randomizedCards = defineCards(14);
   const content = randomizedCards.reduce(
     (prev, card) => prev + buildCardElement(card),
     ""

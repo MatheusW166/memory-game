@@ -34,9 +34,17 @@ h1 {
     text-transform: uppercase;
 }
 
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 34px;
+}
+
 .card-container {
     height: 146px;
     width: 117px;
+    cursor: pointer;
 }
 
 .card {
