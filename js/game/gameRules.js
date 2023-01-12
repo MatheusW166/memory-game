@@ -31,12 +31,22 @@ function unFlipElements(cards) {
   }, 1000);
 }
 
+function hitAnimation(cards) {
+  setTimeout(() => {
+    cards.forEach((e) => {
+      e.element.classList.add("hit");
+    });
+  }, 600);
+}
+
 function addPair(card) {
   PLAYS++;
   POSSIBLEPAIR.push(card);
   if (POSSIBLEPAIR.length < 2) return;
   if (!POSSIBLEPAIR[0].card.isPairOf(POSSIBLEPAIR[1].card)) {
     unFlipElements([...POSSIBLEPAIR]);
+  } else {
+    hitAnimation([...POSSIBLEPAIR]);
   }
   POSSIBLEPAIR.length = 0;
 
@@ -46,7 +56,7 @@ function addPair(card) {
       if (askPlayerRestart()) {
         initGame("Com quantas cartas quer jogar agora?");
       }
-    }, 1000);
+    }, 1200);
   }
 }
 
