@@ -8,6 +8,7 @@ function getTime() {
 }
 
 function startTimer() {
+  timerElement.innerHTML = "0";
   interval = setInterval(() => {
     timerElement.innerHTML = ++time;
   }, 1000);

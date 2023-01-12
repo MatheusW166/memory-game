@@ -39,6 +39,7 @@ header::before {
     content: "";
     width: 47px;
     height: 47px;
+    margin-left: 18px;
 }
 
 h1 {
@@ -59,6 +60,7 @@ h2.timer {
     width: 47px;
     height: 47px;
     margin-top: 16px;
+    margin-right: 18px;
 }
 
 .cards {
