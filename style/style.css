@@ -31,15 +31,6 @@ body {
 
 header {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-header::before {
-    content: "";
-    width: 47px;
-    height: 47px;
-    margin-left: 18px;
 }
 
 h1 {
@@ -49,7 +40,7 @@ h1 {
     letter-spacing: -0.004em;
     text-transform: uppercase;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 64px;
 }
 
 h2.timer {
@@ -57,10 +48,11 @@ h2.timer {
     line-height: 42px;
     letter-spacing: -0.004em;
     color: var(--green-550);
-    width: 47px;
-    height: 47px;
     margin-top: 16px;
     margin-right: 18px;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .cards {
