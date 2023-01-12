@@ -6,6 +6,7 @@ import {
 } from "../db/cards.js";
 import { initGame } from "../init/initGame.js";
 import { askPlayerRestart } from "./setGame.js";
+import { getTime, stopTimer } from "./timer.js";
 
 const POSSIBLEPAIR = [];
 let PLAYS = 0;
@@ -51,8 +52,11 @@ function addPair(card) {
   POSSIBLEPAIR.length = 0;
 
   if (isWinner()) {
+    stopTimer();
     setTimeout(() => {
-      alert(`Você ganhou em ${PLAYS} jogadas!`);
+      alert(
+        `Você ganhou em ${PLAYS} jogadas! A duração do jogo foi de ${getTime()} segundos!`
+      );
       if (askPlayerRestart()) {
         initGame("Com quantas cartas quer jogar agora?");
       }

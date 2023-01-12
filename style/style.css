@@ -4,6 +4,7 @@
     --green-100: #eef9bf;
     --green-400: #a7e9af;
     --green-500: #99cea8;
+    --green-550: #86bd8d;
     --green-600: #75b79e;
 }
 
@@ -17,15 +18,27 @@ body {
     background-color: var(--green-100);
 }
 
-main {
+#root {
     max-width: 968px;
     margin: 0 auto;
     min-height: 100vh;
-    padding: 40px 12px;
+    padding: 0 12px 40px 12px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 48px;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+header::before {
+    content: "";
+    width: 47px;
+    height: 47px;
 }
 
 h1 {
@@ -35,6 +48,17 @@ h1 {
     letter-spacing: -0.004em;
     text-transform: uppercase;
     text-align: center;
+    margin-top: 40px;
+}
+
+h2.timer {
+    font-size: 36px;
+    line-height: 42px;
+    letter-spacing: -0.004em;
+    color: var(--green-550);
+    width: 47px;
+    height: 47px;
+    margin-top: 16px;
 }
 
 .cards {
