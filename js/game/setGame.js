@@ -1,17 +1,36 @@
 import { addCard, getRandomizedCards } from "../db/cards.js";
 import { getRandomImg } from "../db/images.js";
 
-function isNumberOfCardsValid(number, limit = 14) {
+const CARDSLIMIT = 14;
+
+function isNumberOfCardsValid(number, limit = CARDSLIMIT) {
   const n = Number(number);
-  return n && n > 0 && n % 2 === 0 && n <= limit;
+  return !isNaN(n) && n >= 4 && n % 2 === 0 && n <= limit;
 }
 
 function askPlayerCards(message = "Com quantas cartas quer jogar?") {
   let numberOfCards;
+  let count = 0;
   while (!isNumberOfCardsValid(numberOfCards)) {
+    if (count > 0) message = `Escolha de 4 à ${CARDSLIMIT} cartas.`;
     numberOfCards = prompt(message);
+    count++;
   }
   return Number(numberOfCards);
+}
+
+function isAnswerValid(answer) {
+  return answer === "sim" || answer === "não";
+}
+
+function askPlayerRestart(
+  message = 'Deseja reiniciar o jogo? (escreva "sim" ou "não")'
+) {
+  let answer;
+  while (!isAnswerValid(answer)) {
+    answer = prompt(message);
+  }
+  return answer === "sim";
 }
 
 function defineCards(n) {
@@ -32,4 +51,4 @@ function defineCards(n) {
   return getRandomizedCards();
 }
 
-export { defineCards, askPlayerCards };
+export { defineCards, askPlayerCards, askPlayerRestart };

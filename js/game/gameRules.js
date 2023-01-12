@@ -5,8 +5,14 @@ import {
   unFlipCard,
 } from "../db/cards.js";
 import { initGame } from "../init/initGame.js";
+import { askPlayerRestart } from "./setGame.js";
 
 const POSSIBLEPAIR = [];
+let PLAYS = 0;
+
+function getPlays() {
+  return PLAYS;
+}
 
 function flipElement(target, id, flip = true) {
   if (!target || id === undefined) return;
@@ -26,6 +32,7 @@ function unFlipElements(cards) {
 }
 
 function addPair(card) {
+  PLAYS++;
   POSSIBLEPAIR.push(card);
   if (POSSIBLEPAIR.length < 2) return;
   if (!POSSIBLEPAIR[0].card.isPairOf(POSSIBLEPAIR[1].card)) {
@@ -35,8 +42,10 @@ function addPair(card) {
 
   if (isWinner()) {
     setTimeout(() => {
-      alert("Parabéns, você venceu!");
-      initGame(); // Restart game
+      alert(`Você ganhou em ${PLAYS} jogadas!`);
+      if (askPlayerRestart()) {
+        initGame("Com quantas cartas quer jogar agora?");
+      }
     }, 1000);
   }
 }
@@ -45,4 +54,9 @@ function isWinner() {
   return cardsLength() === flippedCount();
 }
 
-export { addPair, flipElement };
+function resetGameRules() {
+  PLAYS = 0;
+  POSSIBLEPAIR.length = 0;
+}
+
+export { addPair, getPlays, flipElement, resetGameRules };

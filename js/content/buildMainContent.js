@@ -11,8 +11,8 @@ function buildCardElement(card) {
   `;
 }
 
-function buildCards() {
-  const randomizedCards = defineCards(askPlayerCards());
+function buildCards(message) {
+  const randomizedCards = defineCards(askPlayerCards(message));
   const container = document.querySelector(".cards");
   const content = randomizedCards.reduce(
     (prev, card) => prev + buildCardElement(card),

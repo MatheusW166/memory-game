@@ -10,7 +10,7 @@ const IMAGES = [
 
 const AVAILABLEIMAGES = [...IMAGES];
 
-function resetAvailableImages() {
+function resetImages() {
   AVAILABLEIMAGES.length = 0;
   IMAGES.forEach((img) => AVAILABLEIMAGES.push(img));
 }
@@ -22,4 +22,4 @@ function getRandomImg() {
   return img;
 }
 
-export { resetAvailableImages, getRandomImg };
+export { resetImages, getRandomImg };

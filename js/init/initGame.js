@@ -1,12 +1,10 @@
 import { buildCards } from "../content/buildMainContent.js";
-import { cleanCards } from "../db/cards.js";
-import { resetAvailableImages } from "../db/images.js";
 import { defineCardClickEvent } from "../events/onCardClick.js";
+import { resetAll } from "./resetAll.js";
 
-function initGame() {
-  resetAvailableImages();
-  cleanCards();
-  buildCards();
+function initGame(message) {
+  resetAll();
+  buildCards(message);
   defineCardClickEvent();
 }
 

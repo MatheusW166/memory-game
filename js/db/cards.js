@@ -15,7 +15,7 @@ class Card {
 
 const CARDS = [];
 
-function cleanCards() {
+function resetCards() {
   CARDS.length = 0;
 }
 
@@ -62,5 +62,5 @@ export {
   getCardById,
   getRandomizedCards,
   cardsLength,
-  cleanCards,
+  resetCards,
 };
