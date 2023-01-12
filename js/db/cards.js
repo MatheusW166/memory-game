@@ -6,13 +6,11 @@ class Card {
     this.flipped = false;
   }
 
-  flipCard() {
-    this.flipped = true;
-  }
+  flipCard = () => (this.flipped = true);
 
-  unFlipCard() {
-    this.flipped = false;
-  }
+  unFlipCard = () => (this.flipped = false);
+
+  isPairOf = (card) => this.pairId === card.id;
 }
 
 const CARDS = [];
