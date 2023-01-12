@@ -11,7 +11,7 @@ function askPlayerCards(message = "Com quantas cartas quer jogar?") {
   while (!isNumberOfCardsValid(numberOfCards)) {
     numberOfCards = prompt(message);
   }
-  return numberOfCards;
+  return Number(numberOfCards);
 }
 
 function defineCards(n) {

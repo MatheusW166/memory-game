@@ -1,7 +1,5 @@
 import { defineCards, askPlayerCards } from "../game/setGame.js";
 
-const cardsList = document.querySelector(".cards");
-
 function buildCardElement(card) {
   return `
   <div class="card-container">
@@ -15,11 +13,12 @@ function buildCardElement(card) {
 
 function buildCards() {
   const randomizedCards = defineCards(askPlayerCards());
+  const container = document.querySelector(".cards");
   const content = randomizedCards.reduce(
     (prev, card) => prev + buildCardElement(card),
     ""
   );
-  cardsList.innerHTML = content;
+  container.innerHTML = content;
 }
 
 export { buildCards };

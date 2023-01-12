@@ -4,6 +4,7 @@ import {
   flippedCount,
   unFlipCard,
 } from "../db/cards.js";
+import { initGame } from "../init/initGame.js";
 
 const POSSIBLEPAIR = [];
 
@@ -35,6 +36,7 @@ function addPair(card) {
   if (isWinner()) {
     setTimeout(() => {
       alert("Parabéns, você venceu!");
+      initGame(); // Restart game
     }, 1000);
   }
 }

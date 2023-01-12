@@ -1,7 +1,5 @@
-import { buildCards } from "./content/buildMainContent.js";
-import { defineCardClickEvent } from "./events/onCardClick.js";
+import { initGame } from "./init/initGame.js";
 
-buildCards();
-defineCardClickEvent();
+initGame();
 
 export {};
