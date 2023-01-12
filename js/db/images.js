@@ -1,11 +1,11 @@
 const IMAGES = [
-  "../../img/bobrossparrot.gif",
-  "../../img/explodyparrot.gif",
-  "../../img/fiestaparrot.gif",
-  "../../img/metalparrot.gif",
-  "../../img/revertitparrot.gif",
-  "../../img/tripletsparrot.gif",
-  "../../img/unicornparrot.gif",
+  "./img/bobrossparrot.gif",
+  "./img/explodyparrot.gif",
+  "./img/fiestaparrot.gif",
+  "./img/metalparrot.gif",
+  "./img/revertitparrot.gif",
+  "./img/tripletsparrot.gif",
+  "./img/unicornparrot.gif",
 ];
 
 const AVAILABLEIMAGES = [...IMAGES];
