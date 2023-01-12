@@ -28,7 +28,7 @@ function askPlayerRestart(
 ) {
   let answer;
   while (!isAnswerValid(answer)) {
-    answer = prompt(message);
+    answer = prompt(message)?.trim();
   }
   return answer === "sim";
 }
