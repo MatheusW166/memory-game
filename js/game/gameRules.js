@@ -1,13 +1,9 @@
-import {
-  cardsLength,
-  flipCard,
-  flippedCount,
-  unFlipCard,
-} from "../db/cards.js";
+import { cardsLength, flipCard, unFlipCard } from "../db/cards.js";
 import { initGame } from "../init/initGame.js";
 import { askPlayerRestart } from "./setGame.js";
 import { getTime, stopTimer } from "./timer.js";
 
+const FORMEDPAIRS = [];
 const POSSIBLEPAIR = [];
 let PLAYS = 0;
 
@@ -44,10 +40,11 @@ function addPair(card) {
   PLAYS++;
   POSSIBLEPAIR.push(card);
   if (POSSIBLEPAIR.length < 2) return;
-  if (!POSSIBLEPAIR[0].card.isPairOf(POSSIBLEPAIR[1].card)) {
-    unFlipElements([...POSSIBLEPAIR]);
-  } else {
+  if (POSSIBLEPAIR[0].card.isPairOf(POSSIBLEPAIR[1].card)) {
     hitAnimation([...POSSIBLEPAIR]);
+    FORMEDPAIRS.push([...POSSIBLEPAIR]);
+  } else {
+    unFlipElements([...POSSIBLEPAIR]);
   }
   POSSIBLEPAIR.length = 0;
 
@@ -65,12 +62,13 @@ function addPair(card) {
 }
 
 function isWinner() {
-  return cardsLength() === flippedCount();
+  return cardsLength() / 2 === FORMEDPAIRS.length;
 }
 
 function resetGameRules() {
   PLAYS = 0;
   POSSIBLEPAIR.length = 0;
+  FORMEDPAIRS.length = 0;
 }
 
 export { addPair, getPlays, flipElement, resetGameRules };
